@@ -1,17 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import { STATUS } from '../../../store/slices/user/userSlice.constant';
+import { useTableData } from '../shared/useTableData';
 
-const UserTable: React.FC = () => {
-  const users = useSelector((state: RootState) => state.users.data);
-  const status = useSelector((state: RootState) => state.users.status);
-  const error = useSelector((state: RootState) => state.users.error);
+export const UserTableDesktop = () => {
+  const { status, error, users } = useTableData();
 
-  if (status === 'loading') {
+  if (status === STATUS.LOADING ) {
     return <p>Loading...</p>;
   }
 
-  if (status === 'failed') {
+  if (status === STATUS.FAILED) {
     return <p>Error: {error}</p>;
   }
 
@@ -38,5 +36,3 @@ const UserTable: React.FC = () => {
     </table>
   );
 };
-
-export default UserTable;

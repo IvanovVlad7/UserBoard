@@ -1,0 +1,1 @@
+export { UserTableMobile } from './userTable.mobile';

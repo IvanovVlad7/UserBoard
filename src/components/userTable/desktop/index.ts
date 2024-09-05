@@ -1,0 +1,1 @@
+export { UserTableDesktop } from './userTable.desktop';
