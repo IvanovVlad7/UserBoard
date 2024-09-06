@@ -1,11 +1,12 @@
 import React from 'react';
 import { STATUS } from '../../../store/slices/user/userSlice.constant';
 import { useTableData } from '../shared/useTableData';
+import './userTable.desktop.scss';
 
-export const UserTableDesktop = () => {
+export const UserTableDesktop: React.FC = () => {
   const { status, error, users } = useTableData();
 
-  if (status === STATUS.LOADING ) {
+  if (status === STATUS.LOADING) {
     return <p>Loading...</p>;
   }
 
@@ -14,25 +15,27 @@ export const UserTableDesktop = () => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        {users.map((user: { id: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; username: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; email: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; phone: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }) => (
-          <tr key={user.id}>
-            <td>{user.name}</td>
-            <td>{user.username}</td>
-            <td>{user.email}</td>
-            <td>{user.phone}</td>
+    <div className="user-table-container">
+      <table className="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {users.map((user: { id: React.Key; name: string; username: string; email: string; phone: string }) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>{user.email}</td>
+              <td>{user.phone}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };

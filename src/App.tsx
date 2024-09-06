@@ -4,6 +4,8 @@ import { fetchUsers } from './services/api/fetchUsers';
 import { AppDispatch } from './store/store';
 import { UserTable } from './components/userTable/';
 
+
+
 const App: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -12,9 +14,9 @@ const App: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='App'>
       <UserTable />
-    </>
+    </div>
   );
 };
 
