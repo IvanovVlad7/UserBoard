@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { STATUS } from '../../../store/slices/user/userSlice.constant';
 import { useTableData } from '../shared/useTableData';
 import './userTable.desktop.scss';
-import Loader from '../../loader/loader';
+import { Loader } from '../../loader/loader';
 import { FilterInput } from '../../filterInput';
-import ErrorMessage from '../../errorMessage/errorMessage';
+import { ErrorMessage } from '../../errorMessage/errorMessage';
 
 export const UserTableDesktop: React.FC = () => {
   const { status, error, users } = useTableData();
@@ -15,9 +15,8 @@ export const UserTableDesktop: React.FC = () => {
   const [filterPhone, setFilterPhone] = useState('');
 
   if (status === STATUS.LOADING) {
-  return <Loader/>; 
+    return <Loader/>; 
   }
-
 
   if (status === STATUS.FAILED) {
     return <ErrorMessage message={error || 'An unknown error occurred'} />
@@ -27,6 +26,7 @@ export const UserTableDesktop: React.FC = () => {
 
     const regex = new RegExp(`(${highlight})`, 'gi');
     const parts = text.split(regex);
+    // TODO: think about this *
     return (
       <>
         {parts.map((part, index) => 
@@ -85,21 +85,21 @@ export const UserTableDesktop: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {filteredUsers.length ? (
-            filteredUsers.map(({ id, name, username, email, phone }) => (
-              <tr key={id}>
-                <td>{highlightText(name, filterName)}</td> 
-                <td>{highlightText(username, filterUsername)}</td>
-                <td>{highlightText(email, filterEmail)}</td>
-                <td>{highlightText(phone, filterPhone)}</td>
-              </tr>
-            ))
-          ) : (
+            {filteredUsers.length ? (
+              filteredUsers.map(({ id, name, username, email, phone }) => (
+               <tr key={id}>
+                  <td>{highlightText(name, filterName)}</td> 
+                  <td>{highlightText(username, filterUsername)}</td>
+                  <td>{highlightText(email, filterEmail)}</td>
+                  <td>{highlightText(phone, filterPhone)}</td>
+               </tr>
+             ))
+            ) : (
             <tr>
-              <td colSpan={4} className="no-results">No results found</td>
+               <td colSpan={4} className="no-results">No results found</td>
             </tr>
-          )}
-        </tbody>
+              )}
+          </tbody>
       </table>
     </div>
   );

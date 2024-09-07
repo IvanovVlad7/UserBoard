@@ -1,10 +1,6 @@
 import React from 'react';
+import { FilterInputProps } from './filterInterface';
 
-interface FilterInputProps {
-  placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-} // TODO: move to interface
 
 export const FilterInput: React.FC<FilterInputProps> = ({ placeholder, value, onChange }) => (
   <input
