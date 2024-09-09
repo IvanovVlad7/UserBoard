@@ -2,7 +2,7 @@
 
 .user-table-container {
   padding: $container-padding;
-  background-color: $container-bg-color;
+  background-color: $white;
   border-radius: $container-radius;
   box-shadow: $container-shadow;
   max-width: 90%;
@@ -40,7 +40,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
-      background-color: $filter-button-bg;
+      background-color: $white;
       border: none;
       color: $filter-button-color;
       cursor: pointer;
@@ -80,7 +80,7 @@
 
   th {
     background-color: $primary-dark-color;
-    color: $active-text-color;
+    color: $white;
     font-weight: bold;
   }
 
@@ -94,7 +94,7 @@
       background-color: $even-row-bg-color;
     }
     &:nth-child(odd) {
-      background-color: $odd-row-bg-color;
+      background-color: $white;
     }
 
     &:hover {
@@ -104,7 +104,7 @@
 
     &:active {
       background-color: $active-bg-color;
-      color: $active-text-color;
+      color: $white;
     }
   }
 
