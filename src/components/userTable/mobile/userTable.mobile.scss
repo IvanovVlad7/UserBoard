@@ -1,0 +1,117 @@
+@use '../../../styles/variables.scss' as *;
+
+.user-table-container {
+  padding: 10px;
+  background-color: $modal-content-bg;
+  max-width: 100%;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+.filter-button {
+  position: fixed;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: $filter-button-bg;
+  border: $filter-button-border;
+  color: $filter-button-color;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  bottom: 5%;
+  right: 5%;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.filter-button-reset {
+  position: fixed;
+  padding: 12px 15px;
+  font-size: 16px;
+  background-color: $filter-button-bg;
+  border: $filter-button-border;
+  color: $filter-button-color;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  bottom: 5%;
+  right: 22%;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .filter-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+    }
+  }
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  th {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  tbody tr {
+    &:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    &:hover {
+      background-color: #f1f8ff;
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
+// @import '../shared/userTable.scss';
+
+// .user-table-container {
+//   max-width: 100%;
+//   margin: 20px auto;
+// }
+
+// .filter-button {
+//   position: fixed;
+//   bottom: 5%;
+//   right: 5%;
+// }
+
+// .filter-button-reset {
+//   position: fixed;
+//   bottom: 5%;
+//   right: 22%;
+// }

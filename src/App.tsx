@@ -4,7 +4,6 @@ import { fetchUsers } from './services/api/fetchUsers';
 import { AppDispatch } from './store/store';
 import { UserTable } from './components/userTable/';
 
-// TODO: remvoe pointer from table row
 const App: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 

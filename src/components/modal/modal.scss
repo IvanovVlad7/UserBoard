@@ -1,0 +1,46 @@
+@use '../../styles/variables.scss' as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $modal-bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: $modal-content-bg;
+    padding: 0 20px 20px 20px;
+    border-radius: $modal-radius;
+    width: 100%;
+    position: relative;
+    top: 29%;
+    animation: slide-up 0.3s ease-out;
+
+    &__control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .close-button {
+        background: none;
+        border: none;
+        font-size: $close-button-size;
+        cursor: pointer;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        top: 100%;
+    }
+    to {
+        top: 29%;
+    }
+}
